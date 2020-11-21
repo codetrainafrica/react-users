@@ -6,37 +6,13 @@ import AddUserForm from "./components/AddUserForm";
 import "./App.css";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: [
-        {
-          name: "Ahmed Zaky",
-          email: "ahmed@email.com",
-          gen: 12,
-          id: "049030kjlksk34",
-        },
-        {
-          name: "Ricardo Brandt",
-          email: "ricardo@email.com",
-          gen: 1,
-          id: "ksdlf03490349",
-        },
-        {
-          name: "Adwoa Comfort",
-          email: "adwoa@email.com",
-          gen: 15,
-          id: "ksldj0349-0359",
-        },
-      ],
-    };
-  }
-  addNewUser = (user) => {
-    user.id = Math.random().toString();
-    this.setState({
-      users: [...this.state.users, user],
-    });
-  };
+  
+  // addNewUser = (user) => {
+  //   user.id = Math.random().toString();
+  //   this.setState({
+  //     users: [...this.state.users, user],
+  //   });
+  // };
   deleteUser = (id) => {
     let undeletedUsers = this.state.users.filter((user) => user.id !== id);
     this.setState({
@@ -58,13 +34,12 @@ class App extends Component {
             <Col md="4">
               <h4>Add Users</h4>
               <br/>
-              <AddUserForm addUser={this.addNewUser} />
+              <AddUserForm />
             </Col>
             <Col>
               <h4>All Codetrain Users</h4>
               <br/>
               <Users
-                usersData={this.state.users}
                 deleteUser={this.deleteUser}
                 editUser={this.editUser}
               />
