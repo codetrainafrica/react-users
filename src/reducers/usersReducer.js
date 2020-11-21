@@ -1,15 +1,31 @@
 const initialState = {
   users: [
-    { name: "Zak", email: "zak@email.com", gen: 12 },
-    { name: "Awal", email: "awal@email.com", gen: 22 },
-    { name: "Tony", email: "tony@email.com", gen: 13 },
+    {
+      name: "Ahmed Zaky",
+      email: "ahmed@email.com",
+      gen: 12,
+      id: "049030kjlksk34",
+    },
+    {
+      name: "Ricardo Brandt",
+      email: "ricardo@email.com",
+      gen: 1,
+      id: "ksdlf03490349",
+    },
+    {
+      name: "Adwoa Comfort",
+      email: "adwoa@email.com",
+      gen: 15,
+      id: "ksldj0349-0359",
+    },
   ],
 };
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case "ADD_USER":
-                return state;
+                console.log(action.payload)
+                return {...state, users: [...state.users, action.payload]};
     
         default:
             return state;
