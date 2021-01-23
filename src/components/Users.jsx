@@ -12,7 +12,6 @@ const Users = (props) => {
             <User
               userInfo={user}
               key={user.id}
-              deleteUser={props.deleteUser}
               editUser={props.editUser}
             />
           );
