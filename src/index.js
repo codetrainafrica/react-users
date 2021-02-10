@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import Router from './Router';
 import * as serviceWorker from "./serviceWorker";
+import "./index.css";
 
 import { Provider } from "react-redux";
 import { store } from "./store/store";
@@ -10,7 +10,7 @@ import { store } from "./store/store";
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <App />
+      <Router />
     </React.StrictMode>
   </Provider>,
   document.getElementById("root")

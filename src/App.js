@@ -3,29 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
 import Users from "./components/Users";
 import AddUserForm from "./components/AddUserForm";
+import { connect } from "react-redux";
+import { logout } from "./actions/authActions";
 import "./App.css";
 
 class App extends Component {
-  
-  // addNewUser = (user) => {
-  //   user.id = Math.random().toString();
-  //   this.setState({
-  //     users: [...this.state.users, user],
-  //   });
-  // };
-  // deleteUser = (id) => {
-  //   let undeletedUsers = this.state.users.filter((user) => user.id !== id);
-  //   this.setState({
-  //     users: undeletedUsers,
-  //   });
-  // };
-  // editUser = (id, updatedUser) => {
-  //   this.setState({
-  //     users: this.state.users.map((user) =>
-  //       user.id === id ? updatedUser : user
-  //     ),
-  //   });
-  // };
   render() {
     return (
       <>
@@ -33,16 +15,15 @@ class App extends Component {
           <Row>
             <Col md="4">
               <h4>Add Users</h4>
-              <br/>
+              <br />
               <AddUserForm />
             </Col>
             <Col>
               <h4>All Codetrain Users</h4>
-              <br/>
-              <Users
-                deleteUser={this.deleteUser}
-                editUser={this.editUser}
-              />
+              <button onClick={() => this.props.logout()}>Logout</button>
+              <br />
+              <br />
+              <Users deleteUser={this.deleteUser} editUser={this.editUser} />
             </Col>
           </Row>
         </Container>
@@ -51,4 +32,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = {
+  logout: logout,
+};
+
+export default connect(null, mapDispatchToProps)(App);
