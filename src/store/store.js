@@ -3,13 +3,12 @@ import thunk from 'redux-thunk';
 import {getFirebase, reactReduxFirebase, firebaseReducer} from 'react-redux-firebase';
 import {getFirestore, reduxFirestore, firestoreReducer} from 'redux-firestore';
 import usersReducer from "../reducers/usersReducer";
-import authReducer from "../reducers/authReducer";
 import firebase from '../Firebase/Firebase';
 
 const reducers = combineReducers({
   usersState: usersReducer,
   firestore: firestoreReducer,
-  auth: authReducer,
+  firebase: firebaseReducer,
 })
 
 export const store = createStore(
